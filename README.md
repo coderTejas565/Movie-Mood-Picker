@@ -8,7 +8,8 @@ The goal of this project is to practice **core frontend concepts** while buildin
 ---
 
 ## 🚀 Live Demo
-[![Live Demo](...badge url...)](https://codertejas565.github.io/Movie-Mood-Picker/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=flat-square)](http://codertejas565.github.io/Movie-Mood-Picker/)
+
 
 
 
