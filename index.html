@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mood-Based-Movie</title>
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  color: #fff;
+  min-height: 100vh;
+}
+
+#intro-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.hero-tagline {
+  font-size: 1.5rem;
+  opacity: 0.8;
+  margin: 15px 0 35px;
+}
+
+.mood-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mood-btn {
+  background: rgba(189, 16, 16, 0.52);
+  border: 1px solid rgba(251, 249, 250, 0.53);
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s;
+  font-size: 1.4rem;
+}
+
+.mood-btn:hover {
+  background: #ff0000;
+  transform: translateY(-3px);
+}
+
+#back-btn {
+  background: rgba(189,16,16,0.52);
+  border: 1px solid rgba(251,249,250,0.53);
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+#back-btn:hover {
+  background: #ff0000;
+  transform: translateY(-2px);
+}
+
+.loading {
+  height: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  color: #bbb;
+  text-align: center;
+}
+
+
+#movie-container {
+  width: 90%;
+  max-width: 420px;
+  margin: 30px auto;
+  background: #111;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #2c2c2c;
+  display: none;
+  box-shadow: 0px 0px 18px rgba(42, 20, 20, 0.25);
+  transition: opacity 0.4s ease;
+}
+
+#poster {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.movie-title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  padding: 12px 0;
+  background: #0d0d0d;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.movie-content {
+  padding: 18px 22px;
+}
+
+.movie-info {
+  font-size: 14px;
+  margin-bottom: 7px;
+  opacity: 0.85;
+}
+
+p {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+.ratings {
+  margin-top: 15px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ratings span {
+  background: rgba(189, 16, 16, 0.52);
+  border: 1px solid #ff0000;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.slider {
+  text-align: center;
+  margin-top: 15px;
+  display: none;
+}
+
+button {
+  padding: 12px 22px;
+  margin: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  background: #292929;
+  color: white;
+  transition: 0.25s;
+}
+
+button:hover {
+  background: #ff0000;
+  transform: scale(1.05);
+}
+
+
+  </style>
+</head>
+
+<body>
+
+   <section id="intro-screen">
+  <div class="intro-content">
+    <h1 class="hero-title"> Movie Mood Picker</h1>
+    <p class="hero-tagline">Tell me how you feel. I’ll find a movie that matches it.</p>
+
+    <div class="mood-buttons">
+      <button class="mood-btn" data-mood="comedy">Comedy</button>
+      <button class="mood-btn" data-mood="action">Action</button>
+      <button class="mood-btn" data-mood="drama">Serious</button>
+      <button class="mood-btn" data-mood="romantic">Romantic</button>
+    </div>
+  </div>
+</section>
+
+
+<button id="back-btn" style="display:none;">Choose Another Mood</button>
+
+<div id="movie-container" >
+    <img id="poster" src="https://images.unsplash.com/photo-1762320254010-a8eba571a622?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=600" alt="poster">
+    <div class="movie-title">pk(2014)</div>
+    <div class="movie-content">
+    <div class="movie-info">Director:Rajkumar Hirani</div>
+    <div class="movie-info">Actors: Aamir khan, Anushka sharma</div>
+    <div class="movie-info">Genre:Comedy,Drama</div>
+    <div class="movie-info">Runtime: 153min</div>
+    <p>An alien on earth</p>
+    <div class="ratings">
+        <span>IMDB: 8.1/10 </span>
+        <span>Rotten Tomoatoes: 80%</span>
+    </div>
+    </div>
+
+</div>
+
+
+<div class="slider">
+  <div>
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+  </div>
+</div>
+
+<script src="./index.js"></script>
+</body>
+</html>
